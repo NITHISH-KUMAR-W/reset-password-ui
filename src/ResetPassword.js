@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -10,7 +10,7 @@ function ResetPassword() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`http://localhost:5000/api/reset-password/${token}`, { password });
+            const response = await axios.post(`https://password-reset-server-fu4u.onrender.com/api/reset-password/${token}`, { password });
             setMessage(response.data.message);
         } catch (error) {
             setMessage("Error resetting password");

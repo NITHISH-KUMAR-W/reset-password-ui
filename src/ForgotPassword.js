@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 function ForgotPassword() {
@@ -8,7 +8,7 @@ function ForgotPassword() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:5000/api/forgot-password", { email });
+            const response = await axios.post("https://password-reset-server-fu4u.onrender.com/api/forgot-password", { email });
             setMessage(response.data.message);
         } catch (error) {
             setMessage("Error sending reset email");
