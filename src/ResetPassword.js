@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import './App.css'
 
 function ResetPassword() {
     const { token } = useParams();
@@ -18,13 +19,22 @@ function ResetPassword() {
     };
 
     return (
-        <div className="container">
-            <h2>Reset Password</h2>
+        <div className="container mt-5">
+            <h2 className="mb-4">Reset Password</h2>
             <form onSubmit={handleSubmit}>
-                <input type="password" placeholder="Enter new password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-                <button type="submit">Reset Password</button>
+                <div className="mb-3">
+                    <input
+                        type="password"
+                        className="form-control"
+                        placeholder="Enter new password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
+                <button type="submit" className="btn btn-primary">Reset Password</button>
             </form>
-            <p>{message}</p>
+            {message && <p className="mt-3">{message}</p>}
         </div>
     );
 }
