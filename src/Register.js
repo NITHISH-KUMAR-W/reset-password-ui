@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 const Register = () => {
     const [formData, setFormData] = useState({ name: "", email: "", password: "" });
-    console.log("formDataformData", formData)
     const [message, setMessage] = useState("");
     const navigate = useNavigate();
 
@@ -25,7 +24,7 @@ const Register = () => {
 
     return (
         <div className="container mt-5">
-            <h2>Register</h2>
+            <h2>Enter below details and Register</h2>
             {message && <div className="alert alert-info">{message}</div>}
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
@@ -41,6 +40,7 @@ const Register = () => {
                     <input type="password" className="form-control" name="password" onChange={handleChange} required />
                 </div>
                 <button type="submit" className="btn btn-primary">Register</button>
+                <button className="btn btn-link mt-3" onClick={() => navigate("/forgot-password")}>Forgot Password?</button>
             </form>
         </div>
     );
