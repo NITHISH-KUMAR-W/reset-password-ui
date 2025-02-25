@@ -6,7 +6,7 @@ const Register = () => {
     const [formData, setFormData] = useState({ name: "", email: "", password: "" });
     console.log("formDataformData", formData)
     const [message, setMessage] = useState("");
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -17,7 +17,7 @@ const Register = () => {
         try {
             const response = await axios.post("https://password-reset-server-fu4u.onrender.com/api/register", formData);
             setMessage(response.data.message);
-            // setTimeout(() => navigate("/login"), 2000); // Redirect to login after success
+            setTimeout(() => navigate("/forgot-password"), 2000); // Redirect to login after success
         } catch (error) {
             setMessage(error.response?.data?.message || "Registration failed");
         }

@@ -8,7 +8,7 @@ import './App.css'
 function App() {
   return (
     <div className="container-width">
-      <h1>Reset Password through Email</h1>
+      <h1 style={{ textAlign: 'center' }}>Reset Password through Email</h1>
       <Router>
         <Routes>
           <Route path="/" element={<Register />} />
