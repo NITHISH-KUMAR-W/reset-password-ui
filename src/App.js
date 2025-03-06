@@ -14,7 +14,8 @@ function App() {
           <Route path="/" element={<Register />} />
           <Route path="/register" element={<Register />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/reset-password/:token" element={<ResetPassword />} />
+          <Route path="/resetpassword/:token" element={<ResetPassword />} />
+          <Route path="*" element={<div>404 Not Found</div>} />
         </Routes>
       </Router>
     </div>
