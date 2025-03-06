@@ -12,7 +12,7 @@ function ForgotPassword() {
             const response = await axios.post("https://password-reset-server-fu4u.onrender.com/api/forgot-password", { email });
             setMessage(response.data.message);
         } catch (error) {
-            setMessage("Error sending reset email");
+            setMessage("Error sending reset email. Please Register if not registered");
         }
     };
 
