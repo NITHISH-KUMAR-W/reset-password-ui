@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import './App.css'
 
 function ResetPassword() {
     const { token } = useParams();
+    const navigate = useNavigate();
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
 
@@ -13,6 +14,7 @@ function ResetPassword() {
         try {
             const response = await axios.post(`https://password-reset-server-fu4u.onrender.com/api/reset-password/${token}`, { password });
             setMessage(response.data.message);
+            navigate('/login')
         } catch (error) {
             setMessage("Error resetting password");
         }
